@@ -1,0 +1,24 @@
+# Python-related
+*.pyc
+*.pyo
+__pycache__/
+
+# Django-related
+*.log
+*.pot
+*.pyc
+*.swp
+local_settings.py
+db.sqlite3
+media/
+
+# Editors
+.idea/
+.vscode/
+
+# OS-related
+.DS_Store
+Thumbs.db
+
+# Other
+*.env
