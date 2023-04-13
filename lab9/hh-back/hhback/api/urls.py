@@ -1,11 +1,11 @@
 from django.urls import path, include
-from django.http.response import HttpResponse
 from api import views
 
 urlpatterns = [
     path('companies/', views.companies_list),
-    path('companies/<int:companies_id>/', views.companies_get),
-
+    path('companies/<int:id>/', views.company_detail),
+    path('companies/<int:id>/vacancies/', views.company_vacancies),
     path('vacancies/', views.vacancies_list),
-    path('vacancies/<int:companies_id>/', views.vacancies_get),
+    path('vacancies/<int:id>/', views.vacancy_detail),
+    path('vacancies/top_ten/', views.vacancies_top),
 ]
