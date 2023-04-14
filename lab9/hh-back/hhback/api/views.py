@@ -1,8 +1,10 @@
 from django.http.response import JsonResponse
 from api.models import Company, Vacancy
+from django.views.decorators.csrf import csrf_exempt
 import json
 
 # Create your views here.
+@csrf_exempt
 def companies_list(request):
     if request.method == 'GET':
         companies = Company.objects.all()
@@ -17,6 +19,7 @@ def companies_list(request):
         company = Company.objects.create(name=company_name, description = company_desc, city=company_city, adress=company_adress)
         return JsonResponse(company.to_json())
 
+@csrf_exempt
 def company_detail(request, id):
     try:
         company = Company.objects.get(id=id)
@@ -51,6 +54,7 @@ def company_vacancies(request, id):
     return JsonResponse(companyV_json, safe = False)
 
 
+@csrf_exempt
 def vacancies_list(request):
     if request.method == 'GET':
         vacancies = Vacancy.objects.all()
@@ -69,7 +73,7 @@ def vacancies_list(request):
         vacancy = Vacancy.objects.create(name=vacancy_name, description = vacancy_desc, salary=vacancy_salary, company=vacancy_company)
         return JsonResponse(vacancy.to_json())
 
-
+@csrf_exempt
 def vacancy_detail(request, id):
     try:
         vacancy = Vacancy.objects.get(id = id)
