@@ -17,7 +17,7 @@ class Company(models.Model):
             'name': self.name,
             'description': self.description,
             'city': self.city,
-            'address': self.adress
+            'address': self.address
         }
 
 class Vacancy(models.Model):

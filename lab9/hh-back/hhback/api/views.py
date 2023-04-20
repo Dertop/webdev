@@ -15,8 +15,8 @@ def companies_list(request):
         company_name = data.get('name', '')
         company_desc = data.get('description', '')
         company_city = data.get('city', '')
-        company_adress = data.get('adress', '')
-        company = Company.objects.create(name=company_name, description = company_desc, city=company_city, adress=company_adress)
+        company_address = data.get('address', '')
+        company = Company.objects.create(name=company_name, description=company_desc, city=company_city, address=company_address)
         return JsonResponse(company.to_json())
 
 @csrf_exempt
@@ -33,11 +33,11 @@ def company_detail(request, id):
         company_name = data.get('name', company.name)
         company_desc = data.get('description', company.description)
         company_city = data.get('city', company.city)
-        company_adress = data.get('adress', company.city)
+        company_address = data.get('address', company.city)
         company.name = company_name
         company.description = company_desc
         company.city = company_city
-        company.adress = company_adress
+        company.address = company_address
         company.save()
         return JsonResponse(company.to_json())
     if request.method == 'DELETE':
@@ -106,4 +106,4 @@ def vacancy_detail(request, id):
 def vacancies_top(request):
     vacancies = Vacancy.objects.order_by('-salary')[:10]
     vacancies_json = [v.to_json() for v in vacancies]
-    return JsonResponse(vacancies_json, safe = False)
+    return JsonResponse(vacancies_json, safe=False)

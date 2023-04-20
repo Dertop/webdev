@@ -1,0 +1,15 @@
+<h1>Company Detail</h1>
+<div *ngIf="company">
+  <p>ID: {{ company.id }}</p>
+  <p>Name: {{ company.name }}</p>
+  <p>Description: {{ company.description}}</p>
+  <p>City: {{ company.city }}</p>
+  <p>Address: {{ company.address }}</p>
+
+  <h2>Vacancies:</h2>
+  <ul>
+    <li *ngFor="let vacancy of vacancies">
+      <a [routerLink]="['/vacancy', vacancy.id]">{{ vacancy.name }}</a>
+    </li>
+  </ul>
+</div>
