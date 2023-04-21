@@ -8,12 +8,12 @@ import { Vacancy } from '../interfeices/vacancy';
   providedIn: 'root'
 })
 export class CompanyService {
-  private apiUrl = 'http://localhost:8000/api/companies/';
+  private apiUrl = 'http://127.0.0.1:8000/api/companies/';
 
   constructor(private http: HttpClient) { }
 
   getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(this.apiUrl);
+    return this.http.get<Company[]>(`${this.apiUrl}`);
   }
 
   getCompany(id: number): Observable<Company> {

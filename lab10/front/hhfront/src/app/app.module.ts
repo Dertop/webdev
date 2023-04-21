@@ -10,6 +10,7 @@ import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.componen
 import { VacancyTop10Component } from './vacancy-top10/vacancy-top10.component';
 import { CompanyDetailComponent } from './company-detail/company-detail.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [
     CompanyService,
